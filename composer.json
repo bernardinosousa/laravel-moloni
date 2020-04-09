@@ -1,0 +1,51 @@
+{
+    "name": "tiagosimoesdev/laravel-moloni",
+    "description": "A Laravel package to retrieve Google Analytics data.",
+    "keywords": [
+        "spatie",
+        "google",
+        "analytics",
+        "retrieve",
+        "reports",
+        "laravel"
+    ],
+    "homepage": "https://github.com/tiagosimoesdev/laravel-moloni",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Freek Van der Herten",
+            "email": "freek@spatie.be",
+            "homepage": "https://murze.be",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "laravel/framework": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tiagosimoesdev\\Moloni\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tiagosimoesdev\\Moloni\\MoloniServiceProvider"
+            ],
+            "aliases": {
+                "Moloni": "Tiagosimoesdev\\Moloni\\MoloniFacade"
+            }
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tiagosimoesdev\\Moloni\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
