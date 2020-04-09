@@ -24,12 +24,6 @@ class MoloniServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/moloni.php', 'moloni');
 
-        $this->app->bind(MoloniClient::class, function () {
-            $moloniConfig = config('moloni');
-
-            return MoloniClientFactory::createForConfig($moloniConfig);
-        });
-
         $this->app->bind(Moloni::class, function () {
             $moloniConfig = config('moloni');
 
@@ -37,24 +31,9 @@ class MoloniServiceProvider extends ServiceProvider
 
             $client = app(MoloniClient::class);
 
-            return new Moloni($client, $moloniConfig['view_id']);
+            return new Moloni();
         });
 
         $this->app->alias(Moloni::class, 'laravel-moloni');
-    }
-
-    protected function guardAgainstInvalidConfiguration(array $moloniConfig = null)
-    {
-        if (empty($moloniConfig['view_id'])) {
-            throw InvalidConfiguration::viewIdNotSpecified();
-        }
-
-        if (is_array($moloniConfig['service_account_credentials_json'])) {
-            return;
-        }
-
-        if (!file_exists($moloniConfig['service_account_credentials_json'])) {
-            throw InvalidConfiguration::credentialsJsonDoesNotExist($moloniConfig['service_account_credentials_json']);
-        }
     }
 }

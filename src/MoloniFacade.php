@@ -11,6 +11,7 @@ class MoloniFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
+
         return 'laravel-moloni';
     }
 }
