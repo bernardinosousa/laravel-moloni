@@ -86,7 +86,6 @@ class Moloni
         $this->access_token = $response['access_token'];
         $this->expires_at  = Carbon::now()->addSeconds($response['expires_in']);
         $this->refresh_token = $response['refresh_token'];
-        $this->getCompanyId();
     }
 
 
