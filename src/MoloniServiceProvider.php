@@ -27,8 +27,6 @@ class MoloniServiceProvider extends ServiceProvider
         $this->app->bind(Moloni::class, function () {
             $moloniConfig = config('moloni');
 
-            $this->guardAgainstInvalidConfiguration($moloniConfig);
-
             $client = app(MoloniClient::class);
 
             return new Moloni();
