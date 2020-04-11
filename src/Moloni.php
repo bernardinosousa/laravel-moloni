@@ -115,7 +115,7 @@ class Moloni
         $this->expires_at  = Carbon::now()->addSeconds($response['expires_in']);
         $this->refresh_token = $response['refresh_token'];
 
-        dd($this->curl('companies', 'getAll'));
+
         if ($moloni) {
             $moloni->update([
                 'access_token'  =>  $response['access_token'],
