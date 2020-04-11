@@ -14,7 +14,7 @@ class MoloniServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../config/moloni.php' => config_path('moloni.php'),
-            __DIR__ . '/../database/migrations/2020_04_11_143358_create_moloni_table.php' => database_path('migrations/2020_04_11_143358_create_moloni_table.php'),
+            __DIR__ . '/../database/migrations' => database_path('migrations'),
         ]);
     }
 
