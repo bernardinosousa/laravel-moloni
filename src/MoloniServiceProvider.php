@@ -11,11 +11,11 @@ class MoloniServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         $this->publishes([
             __DIR__ . '/../config/moloni.php' => config_path('moloni.php'),
-            __DIR__ . '/../database/migrations' => database_path('migrations'),
-        ]);
+        ], 'moloni-config');
+
+        $this->loadMigrationsFrom(__DIR__.'/../databases/migrations');
     }
 
     /**
