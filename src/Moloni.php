@@ -13,8 +13,19 @@ class Moloni
 {
     use Macroable;
 
+    private bool $sandbox;
 
+    private string $api;
 
+    private ?string $access_token;
+
+    private ?string $expires_at;
+
+    private ?string $token_type;
+
+    private ?string $company_id;
+
+    private ?string $refresh_token;
 
     /**
      * @param string $viewId
@@ -23,7 +34,6 @@ class Moloni
      */
     public static function __callStatic($method, $parameters)
     {
-
         return (new static)->$method(...$parameters);
     }
 
