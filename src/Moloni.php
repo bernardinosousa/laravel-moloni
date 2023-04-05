@@ -30,7 +30,14 @@ class Moloni
 
     public function __construct()
     {
-        $this->api = 'https://api.moloni.pt/v1/';
+        $this->sandbox = config('moloni.sandbox', true);
+
+        if($this->sandbox) {
+            $this->api = 'https://api.moloni.pt/sandbox/';
+        } else {
+            $this->api = 'https://api.moloni.pt/v1/';
+        }
+        
         $this->access_token = null;
         $this->expires_at = null;
         $this->token_type = null;
@@ -161,6 +168,7 @@ class Moloni
                 $this->refreshToken();
                 $this->curl($url, $method, $params);
             } else {
+                dd($e);
                 new RuntimeException($e);
                 abort(569, $e->getMessage());
             }
