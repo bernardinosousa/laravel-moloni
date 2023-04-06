@@ -178,8 +178,6 @@ class Moloni
                 $this->refreshToken();
                 $this->curl($url, $method, $params);
             } else {
-                dd($e);
-                new RuntimeException($e);
                 abort(569, $e->getMessage());
             }
         }
