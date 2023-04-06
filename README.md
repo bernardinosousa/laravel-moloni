@@ -32,8 +32,8 @@ return [
 ## Usage
 
 ```php
-$variable = new Moloni();
-echo $variable->echoPhrase('Hello, VendorName!');
+# Get User Info
+$user = Moloni::curl('/users/getMe/', 'get');
 ```
 
 ## Credits
